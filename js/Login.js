@@ -1,4 +1,5 @@
 import '../css/Login.css';
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 function Login({
    selectedTab,
@@ -28,6 +29,8 @@ function Login({
          return '';
      }
    };
+
+  let navigate = useNavigate();
  
    return(
      <div className="Login">
@@ -69,7 +72,7 @@ function Login({
                <button onClick={handleLogin}>Login</button>
            </div>
            <div className="buttons">
-             <button>회원가입</button>
+             <button onClick = {() => {navigate("")}}>회원가입</button>
              <button>아이디 찾기</button>
              <button>비밀번호 찾기</button>
            </div>

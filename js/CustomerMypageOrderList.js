@@ -1,8 +1,22 @@
 import '../css/CustomerMypageOrderList.css';
 import React, { useState } from 'react';
 import exProductURL from "../images/exProduct.jpg"
+import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+
+let BasicBtn = styled.button`
+   background : black;
+   color : white;
+   width : 100px;
+   height : 25px;
+   line-height: 3px;
+   border-radius: 10px;
+`
 
 function CustomerOrderList() {
+
+   let navigate = useNavigate();
+
    const [customerOrderedProducts, setCustomerOrderedProducts] = useState([
       { 
          id: 1, 
@@ -74,7 +88,7 @@ function CustomerOrderList() {
                   <p>{product.name}</p>
                   <p>{product.price}원</p>
                   <p>{product.options}</p>
-                  <p>{product.state}</p>
+                  <p>배송현황 : {product.state} <BasicBtn onClick = {()=> {navigate("/mypage/delivery")}} >자세히</BasicBtn></p>
                   <hr className='customerOrderLastHr'></hr>
                </div>
             ))}
